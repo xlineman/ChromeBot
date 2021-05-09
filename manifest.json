@@ -1,0 +1,23 @@
+{
+  "name": "First Bot",
+  "description": "This is my first Extension",
+  "version": "0.1.0",
+  "manifest_version": 3,
+
+  "action": {
+    "default_icon": {
+      "16": "/icons/16px-discord.png",
+      "32": "/icons/32px-discord.png",
+      "64": "/icons/64px-discord.png",
+      "128": "/icons/128px-discord.png"
+    },
+    "default_title": "Click Me"
+  },
+  "background": {
+    "service_worker": "background-worker.js"
+  },
+  "permissions": ["activeTab", "tabs", "scripting"],
+  "host_permissions": [
+    "https://cryptoplace.cloud/*"
+  ]
+}
