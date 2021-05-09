@@ -1,3 +1,5 @@
+
+// Click Get Bonus Button
 function clickGetBonuse(){
     console.log("Click Get Bonus Button.");
     var btnGetBonus = document.getElementById("get-bonus");
@@ -10,4 +12,4 @@ function clickGetBonuse(){
 
 
 clickGetBonuse();
-setInterval(clickGetBonuse, 60*1000);
+setInterval(clickGetBonuse, 60*1000);       //Click every minutes
