@@ -1,6 +1,6 @@
 //After Login, redirect to bonus
 
-window.location.replace("/cabinet/bonuses");
+location.replace("/cabinet/bonuses");
 
 
 

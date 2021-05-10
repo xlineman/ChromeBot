@@ -7,8 +7,7 @@ var nInverval = 0;
 
 
 // Find Login submit button
-function GetLoginSubmitButton()
-{
+function GetLoginSubmitButton(){
     var btns = document.querySelectorAll("button.btn.btn-style-form.w-100");
     for (let i = 0; i < btns.length; i++) {
         const btn = btns[i];
@@ -18,30 +17,25 @@ function GetLoginSubmitButton()
     }
 }
 
-// Input Username and password. Click Login.
-function Login()
-{
-    document.getElementById('InputEmailIn').innetText = username;
-    document.getElementById('InputPassword').innetText = password;
-    btnLogin.click();
-}
-
 
 // Run until Login Button is visible.
 function UntilLogin()
 {
-    var agotoLogin = document.getElementsByClassName('goLogin')[0];
-    if (agotoLogin != null)
-    {
-        agotoLogin.click();
+    var strjson = $('#login').serialize();
+    console.log(strjson);
+    console.log(encodeURIComponent(username));
+    if (strjson.indexOf(encodeURIComponent(username)) > 0) {
         GetLoginSubmitButton();
-        if (btnLogin != null)
-        {
-            //clearInterval(nInverval);      //This IntervalFunction is unload when this tab update.
-            Login();  
-        }
+        btnLogin.click();
+        clearInterval(nInverval);
     }
+    else{
+        $("a.goLogin")[0].click();
+        $('#InputEmailIn').val(username);
+        $('#InputPassword').val(password);
+    }
+    
 }
 
-
+$("a.goLogin")[0].click();
 nInverval = setInterval(UntilLogin, 2000);

@@ -1,9 +1,9 @@
 
 // Click Get Bonus Button
 function clickGetBonuse(){
-    console.log("Click Get Bonus Button.");
+    
     var btnGetBonus = document.getElementById("get-bonus");
-    if (btnGetBonus != null)
+    if ((btnGetBonus != null) && (btnGetBonus.innerText.indexOf('bonus') > 0))
     {
         console.log("Click Get Bonus Button Really.");
         btnGetBonus.click();
@@ -12,4 +12,4 @@ function clickGetBonuse(){
 
 
 clickGetBonuse();
-setInterval(clickGetBonuse, 60*1000);       //Click every minutes
+setInterval(clickGetBonuse, 10*1000);       //Click 10s

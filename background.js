@@ -11,16 +11,13 @@ chrome.action.onClicked.addListener(function (tab) {
 
 function RunScriptInCryptoplace(tabId, url){
   if (url == "https://cryptoplace.cloud/")  {
-    chrome.scripting.executeScript({target:{tabId: tabId}, files:['./scripts/cryptocloud_login_before.js']});
-  }
-  else if (url == "https://cryptoplace.cloud/#form-layer")  {
     chrome.scripting.executeScript({target:{tabId: tabId}, files:['./scripts/cryptocloud_login.js']});
-  }
-  else if (url == "https://cryptoplace.cloud/cabinet")  {
-    chrome.scripting.executeScript({target:{tabId: tabId}, files:['./scripts/cryptocloud_cabinet.js']});
   }
   else if (url == "https://cryptoplace.cloud/cabinet/bonuses")  {
     chrome.scripting.executeScript({target:{tabId: tabId}, files:['./scripts/cryptocloud_bonuses.js']});
+  }
+  else if (url.indexOf("https://cryptoplace.cloud/cabinet") >= 0)  {
+    chrome.scripting.executeScript({target:{tabId: tabId}, files:['./scripts/cryptocloud_cabinet.js']});
   }
 }
 
