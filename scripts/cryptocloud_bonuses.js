@@ -1,15 +1,15 @@
-
+"use strict;"
 // Click Get Bonus Button
-function clickGetBonuse(){
+function clickGetBonus(){
     
     var btnGetBonus = document.getElementById("get-bonus");
     if ((btnGetBonus != null) && (btnGetBonus.innerText.indexOf('bonus') > 0))
     {
-        console.log("Click Get Bonus Button Really.");
+        console.log("Click 'Get Bonus' Button.");
         btnGetBonus.click();
     }
 }
 
 
-clickGetBonuse();
-setInterval(clickGetBonuse, 10*1000);       //Click 10s
+clickGetBonus();
+setInterval(clickGetBonus, 10*1000);       //Attempt to Click Every 10s

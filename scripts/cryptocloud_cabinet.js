@@ -1,6 +1,7 @@
+"use strict;"
 //After Login, redirect to bonus
 
-location.replace("/cabinet/bonuses");
+setTimeout(() => {location.replace("/cabinet/bonuses");}, 60 * 1000);
 
 
 

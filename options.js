@@ -1,46 +1,48 @@
-let page = document.getElementById("buttonDiv");
-let selectedClassName = "current";
-const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
+"use strict;"
 
-// Reacts to a button click by marking the selected button and saving
-// the selection
-function handleButtonClick(event) {
-  // Remove styling from the previously selected color
-  let current = event.target.parentElement.querySelector(
-    `.${selectedClassName}`
-  );
-  if (current && current !== event.target) {
-    current.classList.remove(selectedClassName);
-  }
+let inputEmail = document.getElementById('cryptoplace_email');
+let inputPassword = document.getElementById('cryptoplace_password');
+let inputEnable = document.getElementById('cryptoplace_enable');
+//let buttonStart = document.getElementById('start_bot');
 
-  // Mark the button as selected
-  let color = event.target.dataset.color;
-  event.target.classList.add(selectedClassName);
-  chrome.storage.sync.set({ color });
-}
 
-// Add a button to the page for each supplied color
-function constructOptions(buttonColors) {
-  chrome.storage.sync.get("color", (data) => {
-    let currentColor = data.color;
-    // For each color we were provided…
-    for (let buttonColor of buttonColors) {
-      // …create a button with that color…
-      let button = document.createElement("button");
-      button.dataset.color = buttonColor;
-      button.style.backgroundColor = buttonColor;
-
-      // …mark the currently selected color…
-      if (buttonColor === currentColor) {
-        button.classList.add(selectedClassName);
-      }
-
-      // …and register a listener for when that button is clicked
-      button.addEventListener("click", handleButtonClick);
-      page.appendChild(button);
-    }
+const InitializeData = function (e)
+{
+  //console.log("InitializeData");
+  chrome.storage.local.get(['email', 'password', 'enable'], (data) => {
+    inputEmail.value = data.email;
+    inputPassword.value = data.password;
+    inputEnable.checked = data.enable; 
   });
 }
 
-// Initialize the page by constructing the color options
-constructOptions(presetButtonColors);
+const enableClick = function(e) {
+  
+  chrome.storage.local.set({enable:inputEnable.checked});
+
+  // if (inputEnable.checked){
+  //   buttonStart.style.visibility = 'visible';
+  // } else{
+  //   buttonStart.style.visibility = 'hidden';
+  // }
+
+}
+const emailChanger = function(e) {
+  chrome.storage.local.set({'email':inputEmail.value});
+}
+
+const passwordChanger = function(e) {
+  chrome.storage.local.set({password:inputPassword.value});
+}
+
+const StartClick = function(e) {
+    chrome.tabs.create({url:"https://cryptoplace.cloud/cabinet/bonuses"});
+}
+
+document.addEventListener('DOMContentLoaded', InitializeData);
+//buttonStart.addEventListener('click', StartClick);
+inputEnable.addEventListener('click', enableClick);
+inputEmail.addEventListener('input', emailChanger);
+inputEmail.addEventListener('propertychange', emailChanger); // for IE8
+inputPassword.addEventListener('input', passwordChanger);
+inputPassword.addEventListener('propertychange', passwordChanger); // for IE8

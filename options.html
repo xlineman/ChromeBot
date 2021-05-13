@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="button.css">
-  </head>
-  <body>
-    <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
-    </div>
-  </body>
-  <script src="options.js"></script>
+    <head>
+        <link rel="stylesheet" href="./main.css">
+        <script type='text/javascript' src="./scripts/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <p>Account for <strong style="color:DodgerBlue">cyptoplace.cloud</strong></p>
+            <table>
+                <tr>
+                  <td >Enable:</td>
+                  <td ><input  type="checkbox" id="cryptoplace_enable"></td>
+                </tr>
+                <tr>
+                  <td >Email:</td>
+                  <td ><input id="cryptoplace_email" type="text" style="width : 300px"></td>
+                </tr>
+                <tr>
+                  <td >Password:</td>
+                  <td ><input id="cryptoplace_password" type="password" style="width : 300px"></td>
+                </tr>
+              </table>
+              
+        </div>
+        <!-- <div style="width : 100%; align-content: center;">
+            <table>
+                <tr>
+                  <td style="width : 30%"></td>
+                  <td ><a id = "start_bot" class="myButton">Start</a></td>
+                  <td style="width : 30%"></td>
+                </tr>
+              </table>
+        </div> -->
+        <script src="./options.js"></script>
+    </body>
 </html>

@@ -1,9 +1,9 @@
 {
-  "name": "First Bot",
-  "description": "This is my first Extension",
-  "version": "0.1.0",
+  "name": "Bot4cryptoplace",
+  "description": "You can get bonus automatically every 30 minutes",
+  "version": "0.1.2",
   "manifest_version": 3,
-
+  "author" : "xlineman",
   "action": {
     "default_icon": {
       "16": "/icons/16px-discord.png",
@@ -11,18 +11,19 @@
       "64": "/icons/64px-discord.png",
       "128": "/icons/128px-discord.png"
     },
-    "default_title": "Click Me"
+    "default_title": "Input your account and Start"
   },
+  "options_page": "options.html",
   "background": {
     "service_worker": "background-worker.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://cryptoplace.cloud/*"],
+      "matches": ["https://cryptoplace.cloud/*" ],
       "js": ["./scripts/jquery-3.3.1.min.js"],
       "run_at": "document_end"
     }
   ],
-  "permissions": ["activeTab", "tabs", "scripting"],
+  "permissions": ["activeTab", "tabs", "scripting", "storage"],
   "host_permissions": ["https://cryptoplace.cloud/*"]
 }
