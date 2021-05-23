@@ -1,7 +1,7 @@
 "use strict;"
 
 const CRYPTO_PLACE_DOMAIN = "https://cryptoplace.cloud";
-let bEnableCryptoPlace = false;
+let bEnableCryptoPlace = true;
 
 
 //Called When this extension is installed.

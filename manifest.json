@@ -5,15 +5,18 @@
   "manifest_version": 3,
   "author" : "xlineman",
   "action": {
-    "default_icon": {
-      "16": "/icons/16px-discord.png",
-      "32": "/icons/32px-discord.png",
-      "64": "/icons/64px-discord.png",
-      "128": "/icons/128px-discord.png"
+    "default_icons": {
+      "16": "/icons/cryptoplace_16px.png",
+      "32": "/icons/cryptoplace_32px.png",
+      "128": "/icons/cryptoplace_128px.png"
     },
     "default_title": "Input your account and Start"
   },
   "options_page": "options.html",
+  "icons": {
+    "16": "/icons/cryptoplace_16px.png",
+    "32": "/icons/cryptoplace_32px.png",
+    "128": "/icons/cryptoplace_128px.png"},
   "background": {
     "service_worker": "background-worker.js"
   },
